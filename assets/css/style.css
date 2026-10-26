@@ -1,0 +1,123 @@
+:root {
+    --background: #1c1c1c;
+    --surface: #282828; /* TODO: test other colors */
+    --surface-alt: #32302f; /* TODO: test other colors */
+    --text: #ebdbb2;
+    --muted: #928374;
+    --border: #665c54; /* TODO: test other colors */
+
+    --red: #fb5944;
+    --green: #b8bb26;
+    --yellow: #fabd2f;
+    --blue: #83a598;
+    --purple: #d3869b;
+    --aqua: #8ec07c;
+    --orange: #fe8019;
+}
+
+/* Alternative
+:root {
+    --background: #1f2022;
+    --surface: #282c34;
+    --surface-alt: #34383f;
+    --text: #f2e8c9;
+    --muted: #9b9588;
+    --border: #4a4a4a;
+
+    --red: #f25f5c;
+    --orange: #f08a24;
+    --yellow: #e6c454;
+    --green: #a6c36f;
+    --blue: #82b4c9;
+    --purple: #c792c9;
+    --aqua: #85c1b5;
+}*/
+
+@font-face {
+    font-family: "Papermono";
+    src: url("../fonts/PaperMono[wght].ttf") format("truetype");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    margin: 0;
+
+    font-family: "Papermono", monospace;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+
+
+/* Outer page regions */
+
+.site-header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.sidebar {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 2rem 1.5rem;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+}
+
+.content {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 3rem;
+}
+
+.site-footer {
+    grid-column: 1 / -1;
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-header ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--green);
+}
