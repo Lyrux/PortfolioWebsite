@@ -8,81 +8,175 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <nav>
-            <ul>
-                <li><a href="#home">home</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#about">about</a></li>
-            </ul>
-        </nav>
-        <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-            <!-- TODO: add button-->
-        </button>
-    </header>
-    <aside class="sidebar">
-        <nav>
-            <p>// Navigation</p>
-            <ul>
-                <li><a href="#home">home</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#about">about</a></li>
-            </ul>
-        </nav>
-        <nav>
-            <p>// Status</p>
-            <ul>
-                <li><a href="#!">online</a></li><!-- TODO: add link-->
-                <li><a href="">in-progress</a></li><!-- TODO: add link-->
-                <li><a href="">archive</a></li><!-- TODO: add link-->
-            </ul>
-        </nav>
-        <nav>
-            <p>// Toolbox</p>
-            <ul>
-                <li><a href="">C-Based</a></li><!-- TODO: add link-->
-                <li><a href="">Python</a></li><!-- TODO: add link-->
-                <li><a href="">Verilog</a></li><!-- TODO: add link-->
-                <li><a href="">SystemVerilog</a></li><!-- TODO: add link-->
-                <li><a href="">FPGA / HDL</a></li><!-- TODO: add link-->
-                <li><a href="">Computer Vision</a></li><!-- TODO: add link-->
-                <li><a href="">Embedded Systems</a></li><!-- TODO: add link-->
-                <li><a href="">Hardware Design</a></li><!-- TODO: add link-->
-                <li><a href="">Digital Signal Processing</a></li><!-- TODO: add link-->
-            </ul>
-        </nav>
-    </aside>
-    <main class="content">
-        <section id="home">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Hello! I'm Jonathan Kwong, a computer engineering enthusiast. This is my personal portfolio where I showcase my projects, skills, and experiences in the field of computer engineering.</p>
-        </section>
+    <div class="browser-container">
+        <div class="browser-titlebar">
+            <div class="browser-controls">
+                <div class="window-controls" aria-hidden="true">
+                    <span class="close"></span>
+                    <span class="minimize"></span>
+                    <span class="maximize"></span>
+                </div>
+            
+                <div class="browser-navigation">
+                    <button class="backward" aria-label="Go back">‹</button>
+                    <button class="forward" aria-label="Go forward">›</button>
+                </div>
+            </div>
+            
+            <div class="address-bar">
+                lyrux.dev
+            </div>
+        </div>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-
-            <article>
-                <h3>Gesture-Based Glove</h3>
-                <p>Project description...</p>
-            </article>
-            <article>
-                <h3>MIPS Pipeline on FPGA</h3>
-                <p>Project description...</p>
-            </article>
-            <article>
-                <h3>Strawberry Disease Detection</h3>
-                <p>Project description...</p>
-            </article>
-        </section>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <p>About me description...</p>
-        </section>
-    </main>
-    <footer class="site-footer">
-        <p>&copy; 2026 Jonathan Kwong. All rights reserved.</p>
-    </footer>
+        <header class="site-header">
+            <nav>
+                <ul>
+                    <li><a href="#home">[01] _home</a></li>
+                    <li><a href="#projects">[02] _projects</a></li>
+                    <li><a href="#about">[03] _about</a></li>
+                    <li><a href="#resume">[04] _resume</a></li>
+                </ul>
+            </nav>
+            <button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+                <!-- TODO: add button-->
+            </button>
+        </header>
+        <aside class="sidebar">
+            
+            <hr>
+            <nav>
+                <p>// STATUS</p>
+                <ul>
+                    <li><a href="">online</a></li><!-- TODO: add link-->
+                    <li><a href="">in-progress</a></li><!-- TODO: add link-->
+                    <li><a href="">archive</a></li><!-- TODO: add link-->
+                </ul>
+            </nav>
+            <hr>
+            <nav>
+                <p>// TOOLBOX</p>
+                <ul>
+                    <li><a href="">C-Based</a></li><!-- TODO: add link-->
+                    <li><a href="">Python</a></li><!-- TODO: add link-->
+                    <li><a href="">Verilog</a></li><!-- TODO: add link-->
+                    <li><a href="">SystemVerilog</a></li><!-- TODO: add link-->
+                    <li><a href="">FPGA / HDL</a></li><!-- TODO: add link-->
+                    <li><a href="">Computer Vision</a></li><!-- TODO: add link-->
+                    <li><a href="">Embedded Systems</a></li><!-- TODO: add link-->
+                    <li><a href="">Hardware Design</a></li><!-- TODO: add link-->
+                    <li><a href="">Digital Signal Processing</a></li><!-- TODO: add link-->
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <div>
+                <section id="home">
+                    <h1>Welcome to My Portfolio</h1>
+                    <p>Hello! I'm Jonathan Kwong, a computer engineering that loves tinkering with any device that can interact with a
+                        computer.
+                        This is my personal portfolio where I showcase my projects, skills, and experiences in the field of computer
+                        engineering.</p>
+                </section>
+                            
+                <section id="about">
+                    <h2>About Me</h2>
+                    <p>About me description...</p>
+                </section>
+            </div>
+            <hr>
+            <div>
+                <section id="projects" class="projects-section">
+                    <div class="section-heading">
+                        <p>// FEATURED PROJECTS</p>
+                        <span>(03) SELECTED WORK</span>
+                    </div>
+                
+                    <div class="project-grid">
+                        <article class="project-card">
+                            <div class="project-meta">
+                                <span>// 01</span>
+                                <span class="status completed">● COMPLETED</span>
+                            </div>
+                
+                            <img src="images/gesture-glove.jpg" alt="Gesture control glove with flex sensors">
+                
+                            <h3>Gesture Control Glove</h3>
+                
+                            <div class="project-tags">
+                                <span>Embedded</span>
+                                <span>C/C++</span>
+                                <span>Sensors</span>
+                            </div>
+                
+                            <p>
+                                A wearable glove that recognizes hand gestures using
+                                Hall-effect sensors and an IMU.
+                            </p>
+                
+                            <a class="project-link" href="projects/gesture-glove.html">
+                                VIEW PROJECT →
+                            </a>
+                        </article>
+                
+                        <article class="project-card">
+                            <div class="project-meta">
+                                <span>// 02</span>
+                                <span class="status progress">● IN PROGRESS</span>
+                            </div>
+                
+                            <img src="images/fpga-processor.jpg" alt="FPGA development board">
+                
+                            <h3>Custom Processor on FPGA</h3>
+                
+                            <div class="project-tags">
+                                <span>FPGA</span>
+                                <span>Verilog</span>
+                                <span>Architecture</span>
+                            </div>
+                
+                            <p>
+                                A custom processor designed and implemented using
+                                SystemVerilog and FPGA hardware.
+                            </p>
+                
+                            <a class="project-link" href="projects/fpga-processor.html">
+                                VIEW PROJECT →
+                            </a>
+                        </article>
+                
+                        <article class="project-card">
+                            <div class="project-meta">
+                                <span>// 03</span>
+                                <span class="status progress">● IN PROGRESS</span>
+                            </div>
+                
+                            <img src="images/computer-vision.jpg" alt="Computer vision object detection">
+                
+                            <h3>Real-Time Computer Vision</h3>
+                
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>OpenCV</span>
+                                <span>Machine Learning</span>
+                            </div>
+                
+                            <p>
+                                A real-time vision system for detecting and tracking
+                                objects in video.
+                            </p>
+                
+                            <a class="project-link" href="projects/computer-vision.html">
+                                VIEW PROJECT →
+                            </a>
+                        </article>
+                
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="site-footer">
+            <p>&copy; 2026 Jonathan Kwong. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
-<<<<<<< HEAD
 </html>

@@ -1,10 +1,14 @@
+/* =========================================================
+   1. Theme
+   ========================================================= */
+
 :root {
     --background: #1c1c1c;
-    --surface: #282828; /* TODO: test other colors */
-    --surface-alt: #32302f; /* TODO: test other colors */
+    --surface: #282828;/* TODO: test other colors */
+    --surface-alt: #32302f;/* TODO: test other colors */
     --text: #ebdbb2;
     --muted: #928374;
-    --border: #665c54; /* TODO: test other colors */
+    --border: #665c54;/* TODO: test other colors */
 
     --red: #fb5944;
     --green: #b8bb26;
@@ -13,6 +17,11 @@
     --purple: #d3869b;
     --aqua: #8ec07c;
     --orange: #fe8019;
+
+    --text-primary: var(--text);
+    --text-muted: var(--muted);
+    --card-background: var(--surface);
+    --accent: var(--green);
 }
 
 /* Alternative
@@ -33,6 +42,10 @@
     --aqua: #85c1b5;
 }*/
 
+/* =========================================================
+   2. Fonts and reset
+   ========================================================= */
+
 @font-face {
     font-family: "Papermono";
     src: url("../fonts/PaperMono[wght].ttf") format("truetype");
@@ -50,27 +63,129 @@ html {
 }
 
 body {
-    display: grid;
-    grid-template-columns: 16rem 1fr;
-    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     margin: 0;
+    padding: 0.75rem;
 
     font-family: "Papermono", monospace;
-
     background: var(--background);
     color: var(--text);
 }
 
 
+/* =========================================================
+   3. Main page layout
+   ========================================================= */
 
-/* Outer page regions */
+.browser-container {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+
+    min-height: calc(100vh - 1.5rem);
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--background);
+}
+
+
+/* =========================================================
+   4. Browser title bar
+   ========================================================= */
+
+.browser-titlebar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    height: 2.75rem;
+    padding: 0 1rem;
+
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+}
+
+.window-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.window-controls span {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+}
+
+.close {
+    background: var(--red);
+}
+
+.minimize {
+    background: var(--yellow);
+}
+
+.maximize {
+    background: var(--green);
+}
+
+.browser-navigation {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 0.25rem;
+}
+
+.browser-navigation button {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    line-height: 1;
+    cursor: pointer;
+}
+
+.window-action {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.address-bar {
+    flex: 1;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: 0.35rem 1rem;
+
+    border-radius: 0.3rem;
+    background: var(--surface);
+    color: var(--muted);
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   5. Site regions
+   ========================================================= */
 
 .site-header {
-    grid-column: 1 / -1;
+    grid-column: 2;
+    grid-row: 2;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 1rem 2rem;
     background: var(--surface);
     border-bottom: 1px solid var(--border);
@@ -78,7 +193,8 @@ body {
 
 .sidebar {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 2 / 4;
+
     padding: 2rem 1.5rem;
     background: var(--surface);
     border-right: 1px solid var(--border);
@@ -86,15 +202,24 @@ body {
 
 .content {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 3;
+
+    min-width: 0;
     padding: 3rem;
 }
 
 .site-footer {
     grid-column: 1 / -1;
+    grid-row: 4;
+
     padding: 1rem 2rem;
     border-top: 1px solid var(--border);
 }
+
+
+/* =========================================================
+   6. Shared elements
+   ========================================================= */
 
 ul {
     margin: 0;
@@ -120,4 +245,153 @@ a {
 
 a:hover {
     color: var(--green);
+}
+
+hr {
+    margin: 2rem 0;
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   7. Project section
+   ========================================================= */
+
+.projects-section {
+    padding: 2rem 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.section-heading p {
+    margin: 0;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.project-card {
+    min-width: 0;
+    padding: 0.7rem;
+
+    border: 1px solid var(--border);
+    background: var(--card-background);
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.project-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: 11rem;
+    object-fit: cover;
+
+    border: 1px solid var(--border);
+}
+
+.project-card h3 {
+    margin: 1rem 0 0.6rem;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.project-tags span {
+    padding: 0.25rem 0.5rem;
+
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+.status.completed {
+    color: var(--green);
+}
+
+.status.progress {
+    color: var(--blue);
+}
+
+/* =========================================================
+   8. Responsive layout
+   ========================================================= */
+
+@media (max-width: 1000px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 0;
+    }
+
+    .browser-container {
+        min-height: 100vh;
+        border-radius: 0;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
